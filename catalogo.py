@@ -7,7 +7,7 @@ class Catalogo:
     """Gestiona la colección de productos del Rincón del Tenis."""
 
     def __init__(self):
-        # Arranco con los 6 productos del módulo 3
+        # Utilizo los mismos productos que en el Modulo 2 y 3 
         self.__productos = [
             Producto(1, "Raqueta Wilson Pro Staff",       "raquetas",   89990),
             Producto(2, "Zapatillas Asics Gel-Dedicate",  "calzado",    49990),
