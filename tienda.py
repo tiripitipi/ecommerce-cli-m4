@@ -3,6 +3,7 @@
 from catalogo import Catalogo
 from admin import Admin
 from cliente import Cliente
+from producto import Producto
 from excepciones import ProductoNoEncontradoError, CantidadInvalidaError
 from datetime import datetime
 
@@ -142,7 +143,6 @@ class Tienda:
 
             # El id lo calcula el catálogo solo
             nuevo_id = self.__catalogo.get_siguiente_id()
-            from producto import Producto
             producto = Producto(nuevo_id, nombre, categoria, precio)
             self.__catalogo.agregar_producto(producto)
             print(f"{VERDE_OSCURO}✅ Producto '{nombre}' agregado con id {nuevo_id}{RESET}")
@@ -256,6 +256,7 @@ class Tienda:
         while True:
             confirmar = input("\n¿Confirmas la compra? (s/n): ").strip().lower()
             if confirmar == "s":
+                 # Guardo la orden en el archivo
                 self.__guardar_orden(carrito)
                 carrito.vaciar()
                 print(f"{VERDE_OSCURO}✅ Compra confirmada. ¡Gracias por tu compra!{RESET}")
@@ -266,10 +267,6 @@ class Tienda:
             else:
                 print(f"{ROJO}Responde solo 's' o 'n'{RESET}")
 
-        # Guardo la orden en el archivo
-        self.__guardar_orden(carrito)
-        carrito.vaciar()
-        print(f"{VERDE_OSCURO}✅ Compra confirmada. ¡Gracias por tu compra!{RESET}")
 
     def __vaciar_carrito(self, carrito):
         """Vacía el carrito previa confirmación del usuario."""
