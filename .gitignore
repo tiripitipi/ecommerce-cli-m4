@@ -1,0 +1,7 @@
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Los txt se generan solos al usar el programa
+ordenes.txt
+catalogo.txt
